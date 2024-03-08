@@ -9,7 +9,8 @@ import { DeleteTodoComponent } from './component/crud/delete-todo/delete-todo.co
 import { ReadTodoComponent } from './component/crud/read-todo/read-todo.component';
 import { UpdateTodoComponent } from './component/crud/update-todo/update-todo.component';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatRippleModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatRippleModule
   ],
   providers: [
     provideClientHydration()
