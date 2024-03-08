@@ -1,0 +1,8 @@
+.mat-toolbar {
+    background-color: mat-color(primary);
+    color: mat-color(text, primary);
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000;
+  }
