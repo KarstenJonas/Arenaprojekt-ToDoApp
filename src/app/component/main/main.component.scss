@@ -1,8 +1,26 @@
 .mat-toolbar {
-    background-color: mat-color(primary);
-    color: mat-color(text, primary);
     position: fixed; 
     top: 0; 
     width: 100%; 
     z-index: 1000;
+  }
+  mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+    }
+  
+    .toolbar-button {
+      button {
+        background-color: #7884c9;
+        color: white;
+        font-size: 1.2rem; 
+        padding: 10px 20px; 
+      }
+    }
   }
