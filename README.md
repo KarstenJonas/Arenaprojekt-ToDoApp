@@ -25,3 +25,34 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+```mermaid
+gantt
+    title Projektplan
+    dateFormat  YYYY-MM-DD
+    axisFormat %d-%m
+
+    section Todos
+    Prozedur zum Anlegen von todos programmieren     : 2024-04-29, 1d
+    GUI Elemente zum Anzeigen eines todos programmieren : 2024-04-29, 3d
+    Prozedur zum Anzeigen von todos programmieren     : 2024-04-30, 2d
+    Prozedur zum Editieren von todos programmieren    : 2024-05-02, 1d
+    Prozedur zum Löschen von todos programmieren      : 2024-05-02, 1d
+
+    navbar (Sidebar) programmieren                    : 2024-05-02, 1d
+
+    section Filter
+    Gui Elemente für Filter erstellen                 : 2024-05-03, 1d
+    Prozedur für Filter programmieren                 : 2024-05-03, 2d
+
+    section Charts
+    Grafische Darstellung für Piechart erstellen      : 2024-05-13, 2d
+    Prozedur für Piechart programmieren               : 2024-05-14, 2d
+    Grafische Darstellung für Barchart erstellen      : 2024-05-15, 1d
+    Prozedur für Barchart programmieren               : 2024-05-16, 1d
+
+    section Abschluss
+    Demo auf Github bereitstellen                     : 2024-05-17, 1d
+    Entwicklertests                                   : 2024-05-17, 1d
+
+```
