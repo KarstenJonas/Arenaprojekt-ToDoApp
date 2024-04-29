@@ -1,0 +1,40 @@
+.title {
+    display: 100%;
+    justify-content: center;
+    background-color: rgb(0, 34, 128); 
+    color: white;
+  }
+  
+  .create-card {
+    max-width: auto;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center; 
+  }
+  
+  .hinzufügen-button {
+    background-color: green; 
+    color: white; 
+  }
+
+  .abbrechen-button {
+    background-color: red;
+    color: white; 
+  }
+  
+  .dropdown mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+
+  .inline-calendar-card {
+    width: 300px;
+  }
+
+  
+  
