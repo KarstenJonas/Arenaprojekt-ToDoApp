@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
-  formSichtbar: boolean = false;
+  formVisibility: boolean = false;
 
-  toggleFormSichtbarkeit() {
-    this.formSichtbar = !this.formSichtbar;
+  toggleFormVisibility() {
+    this.formVisibility = !this.formVisibility;
   }
 }

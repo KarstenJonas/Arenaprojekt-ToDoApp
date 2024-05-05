@@ -1,9 +1,7 @@
 <mat-toolbar color="primary">
   <div class="logo">ArenaProjekt ToDoApp</div>
-  <div class="toolbar-button">
-    <button mat-button mat-ripple (click)="toggleFormSichtbarkeit()">
-      Neues ToDo
-    </button>
-  </div>
+  <button class="toolbar-button" mat-button mat-ripple (click)="toggleFormVisibility()">
+    Neues ToDo
+  </button>
 </mat-toolbar>
-<app-create-todo *ngIf="formSichtbar"></app-create-todo>
+<app-create-todo *ngIf="formVisibility" (closeForm)="toggleFormVisibility()"></app-create-todo>

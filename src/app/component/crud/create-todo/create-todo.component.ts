@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { ToDo, Priority, Duration } from '../../model/to-do';
+import { CrudService } from '../../service/crud.service';
+import { error } from 'console';
 
 
 @Component({
@@ -11,15 +14,27 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 })
 export class CreateTodoComponent {
 
-  selected: Date | null | undefined;
+
+  constructor(fb: FormBuilder, private crudService: CrudService) {
+    this.todoForm = fb.group({
+      title: ['', Validators.required],
+      text: [''],
+      priority: [Priority.LOW],
+      duration: [Duration.UNSET]
+    })
+  }
+
+  @Output() closeForm = new EventEmitter();
+
+  todoForm !: FormGroup;
+
+  selected: Date | null | undefined; // duedate-picker-variable
+
   errorMessage = '';
-  priorityOptions: string[] = ['Prio1', 'Prio2', 'Prio3'];
+  priorities = Object.values(Priority);
+  durations = Object.values(Duration);
 
-  todoForm = new FormGroup({
 
-    titel : new FormControl('', Validators.required)
-
-  });
 
   updateErrorMessage() {
     if (this.todoForm.hasError('required')) {
@@ -27,5 +42,25 @@ export class CreateTodoComponent {
     }
   }
 
-  
+
+  createTodo() {
+    console.log("createtodo executed");
+    if (this.todoForm.valid) {
+      console.log("Formfields", this.todoForm.value)
+      const todo: ToDo = this.todoForm.value;
+      console.log("todo=", todo)
+      //new ToDo(this.todoForm.get('title')?.value);
+
+      console.log("todoForm is valid");
+      this.crudService.createTodo(todo).subscribe({
+        next: todo => {
+          console.log("Todo created sucessfully", todo);
+          this.todoForm.reset();
+          this.closeForm.emit("");
+        },
+        error: error => console.error("Something went wrong on creating todo", error)
+      }
+      )
+    }
+  }
 }
