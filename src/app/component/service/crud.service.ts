@@ -19,7 +19,11 @@ export class CrudService {
     return this.http.post<ToDo>(this.serviceURL, todo);
   }
 
-  getAllTodo() : Observable<ToDo[]> {
+  getAllTodo(): Observable<ToDo[]> {
     return this.http.get<ToDo[]>(this.serviceURL);
+  }
+
+  editTask(todo: ToDo): Observable<ToDo> {
+    return this.http.put<ToDo>(this.serviceURL + '/' + todo.id, todo);
   }
 }

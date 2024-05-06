@@ -19,7 +19,7 @@ export class ReadTodoComponent {
 
   readAllTask() {
   this.crudService.getAllTodo().subscribe({
-    next: (res) => {this.todos = res},
+    next: res => this.todos = res,
     error: error => console.error("Something went wrong while retrieving todos", error)
     })
   }
