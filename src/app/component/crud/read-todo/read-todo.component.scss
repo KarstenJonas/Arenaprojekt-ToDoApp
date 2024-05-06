@@ -8,7 +8,7 @@
     margin: 10px;
   
     .todo-card {
-      background-color: #EEE;
+      background-color: #dceef8;
       width: 400px;
   
       mat-card-content {
@@ -17,17 +17,19 @@
   
       mat-card-actions {
         margin-top: auto;
+        justify-content: flex-end;
         display: flex;
         gap: 5px;
       }
 
+      mat-button-toggle {
+        height: 38px;
+        align-items: center;
+      }
+
       .btn-toggle-done .mat-button-toggle-checked {
-        background-color: green;
+        background-color: lightgreen;
       }
-      .mat-icon {
-        display: flex;
-        justify-content: center; 
-        align-items: center; 
-      }
+      
     }
   }
