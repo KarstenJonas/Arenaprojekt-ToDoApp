@@ -23,6 +23,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDividerModule } from '@angular/material/divider'
 
 
 
@@ -49,7 +51,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     BrowserAnimationsModule,
     MatDatepickerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonToggleModule,
+    MatDividerModule
   ],
   providers: [
     provideClientHydration()

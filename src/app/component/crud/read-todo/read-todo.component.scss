@@ -1,0 +1,33 @@
+#todo-list {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 8px;
+    margin: 10px;
+  
+    .todo-card {
+      background-color: #EEE;
+      width: 400px;
+  
+      mat-card-content {
+        margin: 10px 0;
+      }
+  
+      mat-card-actions {
+        margin-top: auto;
+        display: flex;
+        gap: 5px;
+      }
+
+      .btn-toggle-done .mat-button-toggle-checked {
+        background-color: green;
+      }
+      .mat-icon {
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+      }
+    }
+  }

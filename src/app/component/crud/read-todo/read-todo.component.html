@@ -1,1 +1,21 @@
-<p>read-todo works!</p>
+<div id="todo-list">
+    <mat-card class="todo-card" *ngFor="let todo of todos">
+        <mat-card-header>
+            <mat-card-title>{{todo.title}}</mat-card-title>
+            <mat-card-subtitle>{{todo.priority}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{todo.text}}</p>
+        </mat-card-content>
+        <mat-card-actions class="btn-toggle-done">
+            <button mat-flat-button color="primary">edit</button>
+            <button mat-flat-button color="warn">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <mat-button-toggle #toggleBtn>
+                <mat-icon>done</mat-icon>
+            </mat-button-toggle>
+            {{toggleBtn.checked}}
+        </mat-card-actions>
+    </mat-card>
+</div>

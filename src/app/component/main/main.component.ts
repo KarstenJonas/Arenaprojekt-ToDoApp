@@ -11,4 +11,5 @@ export class MainComponent {
   toggleFormVisibility() {
     this.formVisibility = !this.formVisibility;
   }
+  
 }

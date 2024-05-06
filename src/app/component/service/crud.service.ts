@@ -19,4 +19,7 @@ export class CrudService {
     return this.http.post<ToDo>(this.serviceURL, todo);
   }
 
+  getAllTodo() : Observable<ToDo[]> {
+    return this.http.get<ToDo[]>(this.serviceURL);
+  }
 }
