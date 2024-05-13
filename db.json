@@ -1,28 +1,6 @@
 {
   "todos": [
     {
-      "id": 0,
-      "title": "test2",
-      "text": "",
-      "status": false,
-      "prio": 1,
-      "datecreated": "2024-05-03T08:47:01.879Z",
-      "duration": 0,
-      "datecompleted": null,
-      "duedate": null
-    },
-    {
-      "id": 1,
-      "title": "test2",
-      "text": "",
-      "status": false,
-      "prio": 1,
-      "datecreated": "2024-05-03T09:05:46.642Z",
-      "duration": 0,
-      "datecompleted": null,
-      "duedate": null
-    },
-    {
       "title": "test27",
       "text": "",
       "status": false,
@@ -45,10 +23,6 @@
       "id": 3
     },
     {
-      "title": "123",
-      "id": 4
-    },
-    {
       "title": "asfasff",
       "priority": "Hoch",
       "duration": "30 Minuten",
@@ -69,22 +43,11 @@
       "id": 7
     },
     {
-      "isTrusted": true,
+      "title": "test5",
+      "text": " sddsfsdfsdfsd ds sdfsdf",
+      "priority": "Niedrig",
+      "duration": "Unbestimmt",
       "id": 8
-    },
-    {
-      "title": "sfasfasf",
-      "text": "asfasfasf",
-      "priority": "Niedrig",
-      "duration": "Unbestimmt",
-      "id": 9
-    },
-    {
-      "title": "sdfsdfsdf",
-      "text": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "priority": "Niedrig",
-      "duration": "Unbestimmt",
-      "id": 10
     }
   ]
 }

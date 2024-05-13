@@ -9,9 +9,8 @@
         </mat-card-content>
         <mat-card-actions class="btn-toggle-done">
             <button mat-flat-button color="primary"> edit </button>
-            <button mat-flat-button color="warn" class="delete-btn">
-                <mat-icon>delete</mat-icon>
-            </button>
+            <app-delete-todo [todo]="todo"></app-delete-todo>
+                
             <mat-button-toggle #toggleBtn>
                 <mat-icon>done</mat-icon>
             </mat-button-toggle>

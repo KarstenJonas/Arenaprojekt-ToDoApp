@@ -26,4 +26,8 @@ export class CrudService {
   editTodo(todo: ToDo): Observable<ToDo> {
     return this.http.put<ToDo>(this.serviceURL + '/' + todo.id, todo);
   }
+
+  deleteTodo(todo : ToDo) : Observable<ToDo> {
+    return this.http.delete<ToDo>(this.serviceURL+'/'+todo.id);
+  }
 }
