@@ -25,8 +25,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDividerModule } from '@angular/material/divider';
-import { TodoFormComponent } from './component/crud/todo-form/todo-form.component'
+import { TodoFormComponent } from './component/crud/todo-form/todo-form.component';
 
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -55,7 +58,10 @@ import { TodoFormComponent } from './component/crud/todo-form/todo-form.componen
     MatDatepickerModule,
     HttpClientModule,
     MatButtonToggleModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatListModule
   ],
   providers: [
     provideClientHydration()
