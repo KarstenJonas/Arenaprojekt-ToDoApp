@@ -1,9 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { ToDo, Priority, Duration } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
-import { error } from 'console';
+import { TodoFormComponent } from '../todo-form/todo-form.component';
 
 
 @Component({
@@ -14,53 +14,27 @@ import { error } from 'console';
 })
 export class CreateTodoComponent {
 
+  @ViewChild(TodoFormComponent) todoFormComponent!: TodoFormComponent;
+  @Output() closeForm: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(fb: FormBuilder, private crudService: CrudService) {
-    this.todoForm = fb.group({
-      title: ['', Validators.required],
-      text: [''],
-      priority: [Priority.LOW],
-      duration: [Duration.UNSET]
-    })
+  constructor(private crudService: CrudService) {}
+
+  submitTodo() {
+    this.todoFormComponent.onSubmit();
   }
 
-  @Output() closeForm = new EventEmitter();
-
-  todoForm !: FormGroup;
-
-  selected: Date | null | undefined; // duedate-picker-variable
-
-  errorMessage = '';
-  priorities = Object.values(Priority);
-  durations = Object.values(Duration);
-
-
-
-  updateErrorMessage() {
-    if (this.todoForm.hasError('required')) {
-      this.errorMessage = 'You must enter a value';
-    }
-  }
-
-
-  createTodo() {
-    console.log("createtodo executed");
-    if (this.todoForm.valid) {
-      console.log("Formfields", this.todoForm.value)
-      const todo: ToDo = this.todoForm.value;
-      console.log("todo=", todo)
-      //new ToDo(this.todoForm.get('title')?.value);
-
-      console.log("todoForm is valid");
+  createTodo(formData: any) {
+    console.log("Formular-Daten vom Unterformular:", formData);
+    const todo: ToDo = formData;
+    if (todo) {
+      console.log("Formfields", todo);
       this.crudService.createTodo(todo).subscribe({
-        next: todo => {
-          console.log("Todo created sucessfully", todo);
-          this.todoForm.reset();
-          this.closeForm.emit("");
+        next: createdTodo => {
+          console.log("ToDo erfolgreich erstellt", createdTodo);
+          this.closeForm.emit();
         },
-        error: error => console.error("Something went wrong on creating todo", error)
-      }
-      )
+        error: error => console.error("Beim Erstellen des ToDo ist ein Fehler aufgetreten", error)
+      });
     }
   }
 }

@@ -24,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatDividerModule } from '@angular/material/divider'
+import { MatDividerModule } from '@angular/material/divider';
+import { TodoFormComponent } from './component/crud/todo-form/todo-form.component'
 
 
 
@@ -35,7 +36,8 @@ import { MatDividerModule } from '@angular/material/divider'
     CreateTodoComponent,
     DeleteTodoComponent,
     ReadTodoComponent,
-    UpdateTodoComponent
+    UpdateTodoComponent,
+    TodoFormComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,10 @@
   </mat-card-title>
   <mat-card-content>
 
-    <form [formGroup]="todoForm" (ngSubmit)="createTodo()">
+    <app-todo-form (formSubmitted)="createTodo($event)"></app-todo-form>
+
+    <!-- 
+  <form [formGroup]="todoForm" (ngSubmit)="createTodo()">
       <mat-form-field appearance="outline">
         <mat-label>Enter Titel</mat-label>
         <input matInput placeholder="Titel" formControlName="title" (blur)="updateErrorMessage()" required>
@@ -41,12 +44,12 @@
         </mat-card>
         <p>Abschlussdatum: {{selected}}</p>
       </div>
-    </form>
+    </form> -->
 
   </mat-card-content>
   <mat-card-actions>
     <div>
-      <button mat-raised-button mat-ripple class="addtodo-button" type="submit" color="primary" (click)="createTodo()">
+      <button mat-raised-button mat-ripple class="addtodo-button" type="submit" color="primary" (click)="submitTodo()">
         Hinzufügen
       </button>
       <button mat-raised-button mat-ripple class="back-button">Abbrechen</button>
