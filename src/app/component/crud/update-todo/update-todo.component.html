@@ -1,1 +1,18 @@
-<p>update-todo works!</p>
+<mat-card class="create-card">
+    <mat-card-title class="title">
+      ToDo editieren
+    </mat-card-title>
+    <mat-card-content>
+  
+        <app-todo-form></app-todo-form>
+  
+    </mat-card-content>
+    <mat-card-actions>
+      <div>
+        <button mat-raised-button mat-ripple class="addtodo-button" type="submit" color="primary" (click)="updateTodo()">
+          Hinzufügen
+        </button>
+        <button mat-raised-button mat-ripple class="back-button">Abbrechen</button>
+      </div>
+    </mat-card-actions>
+  </mat-card>

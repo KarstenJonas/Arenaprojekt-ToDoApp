@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Duration, Priority } from '../../model/to-do';
+import { Duration, Priority} from '../../model/to-do';
 
 @Component({
   selector: 'app-todo-form',

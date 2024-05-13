@@ -23,7 +23,7 @@ export class CrudService {
     return this.http.get<ToDo[]>(this.serviceURL);
   }
 
-  editTask(todo: ToDo): Observable<ToDo> {
+  editTodo(todo: ToDo): Observable<ToDo> {
     return this.http.put<ToDo>(this.serviceURL + '/' + todo.id, todo);
   }
 }

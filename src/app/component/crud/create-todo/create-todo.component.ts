@@ -1,7 +1,6 @@
 import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { ToDo, Priority, Duration } from '../../model/to-do';
+import { ToDo} from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
 
