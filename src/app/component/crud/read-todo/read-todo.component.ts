@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ToDo } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-read-todo',
@@ -9,19 +10,9 @@ import { CrudService } from '../../service/crud.service';
 })
 export class ReadTodoComponent {
 
-  todos: ToDo[] = [];
+  todos: Observable<ToDo[]>;
 
-  constructor(private crudService: CrudService) { }
-
-  ngOnInit(): void {
-    this.readAllTask();
+  constructor(private crudService: CrudService) { 
+    this.todos = crudService.getAllTodo()
   }
-
-  readAllTask() {
-  this.crudService.getAllTodo().subscribe({
-    next: res => this.todos = res,
-    error: error => console.error("Something went wrong while retrieving todos", error)
-    })
-  }
-
 }

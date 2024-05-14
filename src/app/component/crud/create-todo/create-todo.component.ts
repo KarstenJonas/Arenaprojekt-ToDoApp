@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { ToDo} from '../../model/to-do';
+import { ToDo } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
 
@@ -16,7 +16,7 @@ export class CreateTodoComponent {
   @ViewChild(TodoFormComponent) todoFormComponent!: TodoFormComponent;
   @Output() closeForm: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor(private crudService: CrudService) {}
+  constructor(private crudService: CrudService) { }
 
   submitTodo() {
     this.todoFormComponent.onSubmit();
@@ -27,13 +27,8 @@ export class CreateTodoComponent {
     const todo: ToDo = formData;
     if (todo) {
       console.log("Formfields", todo);
-      this.crudService.createTodo(todo).subscribe({
-        next: createdTodo => {
-          console.log("ToDo erfolgreich erstellt", createdTodo);
-          this.closeForm.emit();
-        },
-        error: error => console.error("Beim Erstellen des ToDo ist ein Fehler aufgetreten", error)
-      });
+      this.crudService.createTodo(todo)
+      this.closeForm.emit();
     }
   }
 }
