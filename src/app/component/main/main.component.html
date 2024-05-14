@@ -1,22 +1,46 @@
 <mat-toolbar color="primary">
+  <!-- Button to toggle the side navigation -->
   <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
   <div class="logo">ArenaProjekt ToDoApp</div>
+  <!-- Button to toggle the visibility of the create todo form -->
   <button class="toolbar-button" mat-button mat-ripple (click)="toggleFormVisibility()">
     Neues ToDo
   </button>
 </mat-toolbar>
+
+<!-- Component to create a new todo -->
 <app-create-todo *ngIf="formVisibility" (closeForm)="toggleFormVisibility()"></app-create-todo>
 
+<!-- Container for the side navigation -->
 <mat-sidenav-container class="snav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <!-- Side navigation panel -->
   <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
     fixedTopGap="56">
+    <!-- List of options in the side navigation -->
     <mat-nav-list>
-      @for (nav of fillerNav; track nav) {
-      <a mat-list-item routerLink=".">{{nav}}</a>
-      }
+       <!-- Option to toggle the display of completed todos -->
+      <mat-list-item>
+        <mat-slide-toggle>Erledigte Todos anzeigen</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-slide-toggle>Slide me!</mat-slide-toggle>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-slide-toggle>Slide me!</mat-slide-toggle>
+      </mat-list-item>
+      <!-- Toggle group for filtering todos by priority -->
+      <mat-list-item>
+        <mat-button-toggle-group name="ingredients" aria-label="Ingredients" multiple>
+          <mat-button-toggle value="low">Niedrig</mat-button-toggle>
+          <mat-button-toggle value="middle">Mittle</mat-button-toggle>
+          <mat-button-toggle value="high">Hoch</mat-button-toggle>
+        </mat-button-toggle-group>
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
+  <!-- Content area -->
   <mat-sidenav-content>
+    <!-- Component to read and display todos -->
     <app-read-todo />
   </mat-sidenav-content>
 </mat-sidenav-container>
