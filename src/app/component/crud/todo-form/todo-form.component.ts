@@ -1,6 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Duration, Priority} from '../../model/to-do';
+import { Duration, Priority, ToDo } from '../../model/to-do';
 
 @Component({
   selector: 'app-todo-form',
@@ -10,9 +10,17 @@ import { Duration, Priority} from '../../model/to-do';
 export class TodoFormComponent {
 
   @Output() formSubmitted: EventEmitter<any> = new EventEmitter();
+  @Input() todo!: ToDo;
+
+  ngOnInit(): void {
+    console.log("constructor", this.todo);
+    if (this.todo)
+      this.todoForm.setValue(this.todo);
+  }
 
   constructor(fb: FormBuilder) {
     this.todoForm = fb.group({
+      id: [''],
       title: ['', Validators.required],
       text: [''],
       priority: [Priority.LOW],
@@ -20,7 +28,7 @@ export class TodoFormComponent {
     })
   }
 
-  todoForm : FormGroup;
+  todoForm: FormGroup;
   errorMessage = '';
   priorities = Object.values(Priority);
   durations = Object.values(Duration);

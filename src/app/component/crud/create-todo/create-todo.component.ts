@@ -18,13 +18,8 @@ export class CreateTodoComponent {
 
   constructor(private crudService: CrudService) { }
 
-  submitTodo() {
-    this.todoFormComponent.onSubmit();
-  }
-
-  createTodo(formData: any) {
-    console.log("Formular-Daten vom Unterformular:", formData);
-    const todo: ToDo = formData;
+  createTodo(todo: ToDo) {
+    console.log("Formular-Daten vom Unterformular:", todo);
     if (todo) {
       console.log("Formfields", todo);
       this.crudService.createTodo(todo)

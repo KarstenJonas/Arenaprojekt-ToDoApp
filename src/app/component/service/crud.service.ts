@@ -21,7 +21,7 @@ export class CrudService {
   createTodo(todo: ToDo): void {
     this.http.post<ToDo>(this.serviceURL, todo).subscribe({
       next: result => this.todoSubject.next([...this.todoSubject.value, result]),
-      error: error =>  console.error("Error on todo create", error)
+      error: error => console.error("Error on todo create", error)
     });
   }
 
@@ -35,8 +35,11 @@ export class CrudService {
     return this.todo;
   }
 
-  editTodo(todo: ToDo): Observable<ToDo> {
-    return this.http.put<ToDo>(this.serviceURL + '/' + todo.id, todo);
+  updateTodo(todo: ToDo): void {
+    this.http.put<ToDo>(this.serviceURL + '/' + todo.id, todo).subscribe({
+      next: result => this.todoSubject.next([...this.todoSubject.value.filter(todoOfList => todoOfList.id !== todo.id), result]),
+      error: error => console.error("Error on deleting Todo with Id ", todo.id, error)
+    });
   }
 
   deleteTodo(todo: ToDo): void {

@@ -9,7 +9,7 @@
   </mat-card-content>
   <mat-card-actions>
     <div>
-      <button mat-raised-button mat-ripple class="addtodo-button" type="submit" color="primary" (click)="submitTodo()">
+      <button mat-raised-button mat-ripple class="addtodo-button" type="submit" color="primary" (click)="todoFormComponent.onSubmit()">
         Hinzufügen
       </button>
       <button mat-raised-button mat-ripple class="back-button" (click)="closeForm.emit()">Abbrechen</button>

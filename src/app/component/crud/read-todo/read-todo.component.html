@@ -8,7 +8,8 @@
             <p>{{todo.text}}</p>
         </mat-card-content>
         <mat-card-actions class="btn-toggle-done">
-            <button mat-flat-button color="primary"> edit </button>
+            <app-update-todo [todo]="todo"></app-update-todo>
+            <!-- <button mat-flat-button color="primary"> edit </button> -->
             <app-delete-todo [todo]="todo"></app-delete-todo>
                 
             <mat-button-toggle #toggleBtn>

@@ -1,18 +1,21 @@
-<mat-card class="create-card">
-    <mat-card-title class="title">
-      ToDo editieren
-    </mat-card-title>
-    <mat-card-content>
-  
-        <app-todo-form></app-todo-form>
-  
-    </mat-card-content>
-    <mat-card-actions>
-      <div>
-        <button mat-raised-button mat-ripple class="addtodo-button" type="submit" color="primary" (click)="updateTodo()">
-          Hinzufügen
-        </button>
-        <button mat-raised-button mat-ripple class="back-button">Abbrechen</button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
+<button mat-flat-button color="primary" (click)="toggleUpdateFormVisibility()"> edit </button>
+
+
+<mat-card class="update-card" *ngIf="updateFormVisibility">
+  <mat-card-title class="title">
+    ToDo editieren
+  </mat-card-title>
+  <mat-card-content>
+
+    <app-todo-form [todo]="todo" (formSubmitted)="updateTodo($event)"></app-todo-form>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <div>
+      <button mat-raised-button mat-ripple class="addtodo-button" type="submit" color="primary" (click)="todoFormComponent.onSubmit()">
+        Speichern
+      </button>
+      <button mat-raised-button mat-ripple class="back-button" (click)="toggleUpdateFormVisibility()">Abbrechen</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

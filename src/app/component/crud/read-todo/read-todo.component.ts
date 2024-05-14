@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToDo } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ export class ReadTodoComponent {
 
   todos: Observable<ToDo[]>;
 
-  constructor(private crudService: CrudService) { 
+  constructor(crudService: CrudService) { 
     this.todos = crudService.getAllTodo()
   }
 }
