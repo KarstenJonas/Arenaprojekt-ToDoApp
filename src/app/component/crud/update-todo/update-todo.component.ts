@@ -1,14 +1,12 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { ToDo } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
-import { provideNativeDateAdapter } from '@angular/material/core';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
 
 @Component({
   selector: 'app-update-todo',
   templateUrl: './update-todo.component.html',
-  styleUrl: './update-todo.component.scss',
-  providers: [provideNativeDateAdapter()]
+  styleUrl: './update-todo.component.scss'
 })
 export class UpdateTodoComponent {
 

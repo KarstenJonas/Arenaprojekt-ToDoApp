@@ -31,6 +31,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
 import { StatusTodoComponent } from './component/crud/status-todo/status-todo.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { StatusTodoComponent } from './component/crud/status-todo/status-todo.co
     MatDividerModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    MatListModule
+    MatListModule,
+    DragDropModule
   ],
   providers: [
     provideClientHydration()

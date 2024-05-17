@@ -14,7 +14,7 @@
       "priority": "Hoch",
       "duration": "Unbestimmt",
       "id": 12,
-      "status": true
+      "status": false
     },
     {
       "title": "A-13",
@@ -22,7 +22,7 @@
       "priority": "Hoch",
       "duration": "Unbestimmt",
       "id": 13,
-      "status": true
+      "status": false
     },
     {
       "title": "A-14",
@@ -37,7 +37,7 @@
       "priority": "Mittel",
       "duration": "Unbestimmt",
       "id": 15,
-      "status": true
+      "status": false
     },
     {
       "id": 16,
@@ -45,7 +45,7 @@
       "text": "sdfgjkdfkgjdfgjbdjfgjlkdfgjbl",
       "priority": "Hoch",
       "duration": "Unbestimmt",
-      "status": false
+      "status": true
     },
     {
       "id": 17,
@@ -53,7 +53,7 @@
       "text": "aaaaaaaaaaaa",
       "priority": "Mittel",
       "duration": "Unbestimmt",
-      "status": false
+      "status": true
     }
   ]
 }

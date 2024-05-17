@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Duration, Priority, ToDo } from '../../model/to-do';
+import { Priority, ToDo } from '../../model/to-do';
 
 @Component({
   selector: 'app-todo-form',
@@ -23,17 +23,13 @@ export class TodoFormComponent {
       id: [''],
       title: ['', Validators.required],
       text: [''],
-      priority: [Priority.LOW],
-      duration: [Duration.UNSET]
+      priority: [Priority.LOW]
     })
   }
 
   todoForm: FormGroup;
   errorMessage = '';
   priorities = Object.values(Priority);
-  durations = Object.values(Duration);
-
-  selected: Date | null | undefined; // duedate-picker-variable
 
   updateErrorMessage() {
     if (this.todoForm.hasError('required')) {

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map, filter } from 'rxjs';
-import { ToDo } from '../model/to-do';
+import { BehaviorSubject, Observable, map } from 'rxjs';
+import { Priority, ToDo } from '../model/to-do';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,17 @@ export class CrudService {
   private todoSubject = new BehaviorSubject<ToDo[]>([]);
   private todo = this.todoSubject.asObservable();
 
-  private _isDoneFilterActive : boolean = false;
+  private _isDoneFilterActive: boolean = false;
 
   public set isDoneFilterActive(value: boolean) {
     this._isDoneFilterActive = value;
+  }
+
+  private _selectedPriorities: Priority[] = [];
+
+  public set selectedPriorities(value: string[]) {
+    this._selectedPriorities = value.map((priorityName: string) => Priority[priorityName as keyof typeof Priority]);
+    console.log("selectetPrio:", this._selectedPriorities);
   }
 
 
@@ -33,7 +40,6 @@ export class CrudService {
   }
 
   getAllTodo(): Observable<ToDo[]> {
-    console.log("handshake:", this.isDoneFilterActive);
     if ((this.todoSubject.value as ToDo[]).length === 0) {
       this.http.get<ToDo[]>(this.serviceURL).subscribe({
         next: res => this.todoSubject.next(res),
@@ -42,10 +48,16 @@ export class CrudService {
     }
     return this.todoSubject.pipe(
       map(todos => {
-        if (this._isDoneFilterActive){
-          return todos.filter(todo => !todo.status);
-        }
-          return todos
+        //       if (this._isDoneFilterActive) {
+        //         todos = todos.filter(todo => !todo.status);
+        //       }
+        //       if (this._selectedPriorities?.length > 0) {
+        //         todos = todos.filter(todo => this._selectedPriorities.includes(todo.priority));
+        //       }
+        //       return todos;
+        return todos.filter(x =>
+          (this._isDoneFilterActive || !x.status) &&
+          (this._selectedPriorities.length === 0 || this._selectedPriorities.includes(x.priority)));
       })
     );
   }

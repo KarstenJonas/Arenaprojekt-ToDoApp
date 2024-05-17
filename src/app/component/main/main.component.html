@@ -32,9 +32,9 @@
       <mat-list-item>
         <mat-button-toggle-group #priorityToggleGroup="matButtonToggleGroup" aria-label="Priorität" multiple [value]="selectedPriorities"
           (change)="onPriorityToggleChange($event)">
-          <mat-button-toggle value="low">Niedrig</mat-button-toggle>
-          <mat-button-toggle value="middle">Mittle</mat-button-toggle>
-          <mat-button-toggle value="high">Hoch</mat-button-toggle>
+          <mat-button-toggle value="LOW">Niedrig</mat-button-toggle>
+          <mat-button-toggle value="MEDIUM">Mittel</mat-button-toggle>
+          <mat-button-toggle value="HIGH">Hoch</mat-button-toggle>
         </mat-button-toggle-group>
       </mat-list-item>
     </mat-nav-list>

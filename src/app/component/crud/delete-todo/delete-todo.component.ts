@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CrudService } from '../../service/crud.service';
 import { ToDo } from '../../model/to-do';
 

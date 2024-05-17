@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, Renderer2, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ToDo } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
-import { MatButtonToggleChange, MatButtonToggleGroup } from '@angular/material/button-toggle';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-status-todo',

@@ -10,7 +10,7 @@ import { ToDo } from '../model/to-do';
 })
 export class MainComponent implements OnDestroy {
 
-  selectedPriorities: string[] = ['low', 'middle', 'high'];
+  selectedPriorities: string[] = ['LOW', 'MEDIUM', 'HIGH'];
 
   formVisibility: boolean = false;
 
@@ -34,12 +34,12 @@ export class MainComponent implements OnDestroy {
   }
 
   onPriorityToggleChange($event: any) {
-    console.log("selectedPriority:", this.selectedPriorities)
+    this.crudService.selectedPriorities = $event.value; 
+    console.log("selectedPriority:", $event.value);
   }
 
   onDoneChange(checked: boolean) {
     console.log("toggle:", checked);
     this.crudService.isDoneFilterActive = checked;
   }
-
 }

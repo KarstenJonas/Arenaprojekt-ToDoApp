@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
-import { provideNativeDateAdapter } from '@angular/material/core';
 import { ToDo } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
 import { TodoFormComponent } from '../todo-form/todo-form.component';
@@ -8,8 +7,7 @@ import { TodoFormComponent } from '../todo-form/todo-form.component';
 @Component({
   selector: 'app-create-todo',
   templateUrl: './create-todo.component.html',
-  styleUrl: './create-todo.component.scss',
-  providers: [provideNativeDateAdapter()]
+  styleUrl: './create-todo.component.scss'
 })
 export class CreateTodoComponent {
 

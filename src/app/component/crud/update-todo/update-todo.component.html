@@ -1,7 +1,7 @@
 <button mat-flat-button color="primary" (click)="toggleUpdateFormVisibility()"> edit </button>
 
 
-<mat-card class="update-card" *ngIf="updateFormVisibility">
+<mat-card class="update-card" *ngIf="updateFormVisibility" cdkDrag>
   <mat-card-title class="title">
     ToDo editieren
   </mat-card-title>

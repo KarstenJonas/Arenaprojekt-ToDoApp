@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ToDo } from '../../model/to-do';
 import { CrudService } from '../../service/crud.service';
 import { Observable } from 'rxjs';
-import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-read-todo',

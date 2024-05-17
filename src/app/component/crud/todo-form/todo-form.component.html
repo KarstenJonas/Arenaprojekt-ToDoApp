@@ -1,13 +1,14 @@
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-  <mat-form-field [style.visibility]="'hidden'" appearance="fill">
-    <input matInput [style.visibility]="'hidden'" formControlName="id">
-  </mat-form-field>
+  
   <mat-form-field appearance="outline">
     <mat-label>Enter Titel</mat-label>
     <input matInput placeholder="Titel" formControlName="title" (blur)="updateErrorMessage()" required>
     @if (todoForm.invalid) {
     <mat-error>{{errorMessage}}</mat-error>
     }
+  </mat-form-field>
+  <mat-form-field [style.visibility]="'hidden'" appearance="fill">
+    <input matInput [style.visibility]="'hidden'" formControlName="id">
   </mat-form-field>
   <div>
     <mat-form-field appearance="outline" hintLabel="Max 300 Zeichen" style="width: 600px;">
@@ -24,18 +25,5 @@
         <mat-option *ngFor="let priority of priorities" [value]="priority">{{ priority }}</mat-option>
       </mat-select>
     </mat-form-field>
-
-    <mat-form-field class="duration-input">
-      <mat-label>Laufzeit</mat-label>
-      <mat-select formControlName="duration">
-        <mat-option *ngFor="let duration of durations" [value]="duration">{{ duration }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-card class="inline-calendar-card">
-      <mat-calendar [(selected)]="selected"></mat-calendar>
-    </mat-card>
-    <p>Abschlussdatum: {{selected}}</p>
   </div>
 </form>
