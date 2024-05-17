@@ -23,7 +23,8 @@ export class TodoFormComponent {
       id: [''],
       title: ['', Validators.required],
       text: [''],
-      priority: [Priority.LOW]
+      priority: [Priority.LOW],
+      status: ['']
     })
   }
 

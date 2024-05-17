@@ -7,8 +7,11 @@
     <mat-error>{{errorMessage}}</mat-error>
     }
   </mat-form-field>
-  <mat-form-field [style.visibility]="'hidden'" appearance="fill">
+  <mat-form-field [style.visibility]="'hidden'" class="hidden-input">
     <input matInput [style.visibility]="'hidden'" formControlName="id">
+  </mat-form-field>
+  <mat-form-field [style.visibility]="'hidden'" class="hidden-input">
+    <input matInput [style.visibility]="'hidden'" formControlName="status">
   </mat-form-field>
   <div>
     <mat-form-field appearance="outline" hintLabel="Max 300 Zeichen" style="width: 600px;">

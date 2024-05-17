@@ -32,6 +32,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
 import { StatusTodoComponent } from './component/crud/status-todo/status-todo.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ChartManagmentComponent } from './component/charts/chart-managment/chart-managment.component';
+import { PriorityPieChartComponent } from './component/charts/priority-pie-chart/priority-pie-chart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     ReadTodoComponent,
     UpdateTodoComponent,
     TodoFormComponent,
-    StatusTodoComponent
+    StatusTodoComponent,
+    ChartManagmentComponent,
+    PriorityPieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     MatSidenavModule,
     MatSlideToggleModule,
     MatListModule,
-    DragDropModule
+    DragDropModule,
+    NgxChartsModule
   ],
   providers: [
     provideClientHydration()

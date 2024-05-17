@@ -1,0 +1,10 @@
+.charts {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    .chart{
+        width: 30%;
+        height: 350px;
+    }
+
+}

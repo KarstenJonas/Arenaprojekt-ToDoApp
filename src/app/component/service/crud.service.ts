@@ -12,7 +12,6 @@ export class CrudService {
   serviceURL: string;
 
   private todoSubject = new BehaviorSubject<ToDo[]>([]);
-  private todo = this.todoSubject.asObservable();
 
   private _isDoneFilterActive: boolean = false;
 
@@ -64,7 +63,12 @@ export class CrudService {
 
   updateTodo(todo: ToDo): void {
     this.http.put<ToDo>(this.serviceURL + '/' + todo.id, todo).subscribe({
-      next: result => this.todoSubject.next([...this.todoSubject.value.filter(todoOfList => todoOfList.id !== todo.id), result]),
+      // next: result => this.todoSubject.next([...this.todoSubject.value.filter(todoOfList => todoOfList.id !== todo.id), result]),
+      next: changedTodo => {
+        let todos = this.todoSubject.value;
+        todos.map(it => it.id === changedTodo.id ? changedTodo : it)
+        this.todoSubject.next(todos);
+      },
       error: error => console.error("Error on deleting Todo with Id ", todo.id, error)
     });
   }
