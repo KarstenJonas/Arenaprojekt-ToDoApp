@@ -34,12 +34,14 @@ export class MainComponent implements OnDestroy {
   }
 
   onPriorityToggleChange($event: any) {
-    this.crudService.selectedPriorities = $event.value; 
+    this.crudService.selectedPriorities = $event.value;
+    this.crudService.resetList(); 
     console.log("selectedPriority:", $event.value);
   }
 
   onDoneChange(checked: boolean) {
     console.log("toggle:", checked);
     this.crudService.isDoneFilterActive = checked;
+    this.crudService.resetList();
   }
 }

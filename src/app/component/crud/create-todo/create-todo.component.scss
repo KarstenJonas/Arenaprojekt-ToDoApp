@@ -9,13 +9,15 @@
   display: flex;
   align-items: center;
   z-index: 2;
+  background-color: rgb(0, 34, 128);
 
   .title {
-    background-color: rgb(0, 34, 128);
     color: white;
   }
 }
 
 mat-card-content {
   max-width: fit-content;
+  background-color: white;
+  padding-top: 10px;
 }

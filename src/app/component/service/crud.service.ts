@@ -69,6 +69,10 @@ export class CrudService {
     });
   }
 
+  resetList(): void {
+    this.todoSubject.next(this.todoSubject.value);
+  }
+
   deleteTodo(todo: ToDo): void {
     this.http.delete<ToDo>(this.serviceURL + '/' + todo.id).subscribe({
       next: result => this.todoSubject.next(this.todoSubject.value.filter(todoOfList => todoOfList.id !== todo.id)),
