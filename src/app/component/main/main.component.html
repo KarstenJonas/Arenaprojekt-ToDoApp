@@ -18,9 +18,9 @@
     fixedTopGap="56">
     <!-- List of options in the side navigation -->
     <mat-nav-list>
-       <!-- Option to toggle the display of completed todos -->
+      <!-- Option to toggle the display of completed todos -->
       <mat-list-item>
-        <mat-slide-toggle>Erledigte Todos anzeigen</mat-slide-toggle>
+        <mat-slide-toggle (change)="onDoneChange($event.checked)">Erledigte Todos anzeigen</mat-slide-toggle>
       </mat-list-item>
       <mat-list-item>
         <mat-slide-toggle>Slide me!</mat-slide-toggle>
@@ -30,7 +30,8 @@
       </mat-list-item>
       <!-- Toggle group for filtering todos by priority -->
       <mat-list-item>
-        <mat-button-toggle-group name="ingredients" aria-label="Ingredients" multiple>
+        <mat-button-toggle-group #priorityToggleGroup="matButtonToggleGroup" aria-label="Priorität" multiple [value]="selectedPriorities"
+          (change)="onPriorityToggleChange($event)">
           <mat-button-toggle value="low">Niedrig</mat-button-toggle>
           <mat-button-toggle value="middle">Mittle</mat-button-toggle>
           <mat-button-toggle value="high">Hoch</mat-button-toggle>

@@ -5,21 +5,24 @@
       "text": "Prozedur zum Editieren von todos programmieren",
       "priority": "Mittel",
       "duration": "Unbestimmt",
-      "id": 11
+      "id": 11,
+      "status": true
     },
     {
       "title": "A-12",
       "text": "Prozedur für Filter programmieren",
       "priority": "Hoch",
       "duration": "Unbestimmt",
-      "id": 12
+      "id": 12,
+      "status": true
     },
     {
       "title": "A-13",
       "text": "Grafische Darstellung für Piechart erstellen",
       "priority": "Hoch",
       "duration": "Unbestimmt",
-      "id": 13
+      "id": 13,
+      "status": true
     },
     {
       "title": "A-14",
@@ -33,21 +36,24 @@
       "text": "Demo auf Github bereitstellen",
       "priority": "Mittel",
       "duration": "Unbestimmt",
-      "id": 15
+      "id": 15,
+      "status": true
     },
     {
       "id": 16,
       "title": "Hi",
       "text": "sdfgjkdfkgjdfgjbdjfgjlkdfgjbl",
       "priority": "Hoch",
-      "duration": "Unbestimmt"
+      "duration": "Unbestimmt",
+      "status": false
     },
     {
       "id": 17,
       "title": "test2",
       "text": "aaaaaaaaaaaa",
       "priority": "Mittel",
-      "duration": "Unbestimmt"
+      "duration": "Unbestimmt",
+      "status": false
     }
   ]
 }

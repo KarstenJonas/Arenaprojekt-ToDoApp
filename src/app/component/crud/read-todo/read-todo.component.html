@@ -11,11 +11,8 @@
             <app-update-todo [todo]="todo"></app-update-todo>
             <!-- <button mat-flat-button color="primary"> edit </button> -->
             <app-delete-todo [todo]="todo"></app-delete-todo>
-                
-            <mat-button-toggle #toggleBtn>
-                <mat-icon>done</mat-icon>
-            </mat-button-toggle>
-            <!--{{toggleBtn.checked}} erinnerung fürs spätere Archivieren-->
+
+            <app-status-todo [todo]="todo"></app-status-todo>            
         </mat-card-actions>
     </mat-card>
 </div>

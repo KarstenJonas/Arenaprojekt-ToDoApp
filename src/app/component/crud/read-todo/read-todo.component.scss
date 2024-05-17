@@ -20,17 +20,6 @@
       margin-top: auto;
       display: flex;
       gap: 5px;
-
-      mat-button-toggle {
-        height: 38px;
-        align-items: center;
-      }
-      
     }
-
-    .btn-toggle-done .mat-button-toggle-checked {
-      background-color: lightgreen;
-    }
-
   }
 }

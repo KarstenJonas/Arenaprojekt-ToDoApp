@@ -30,6 +30,7 @@ import { TodoFormComponent } from './component/crud/todo-form/todo-form.componen
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
+import { StatusTodoComponent } from './component/crud/status-todo/status-todo.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {MatListModule} from '@angular/material/list';
     DeleteTodoComponent,
     ReadTodoComponent,
     UpdateTodoComponent,
-    TodoFormComponent
+    TodoFormComponent,
+    StatusTodoComponent
   ],
   imports: [
     BrowserModule,

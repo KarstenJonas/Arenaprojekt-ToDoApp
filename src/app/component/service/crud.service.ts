@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map, filter } from 'rxjs';
 import { ToDo } from '../model/to-do';
 
 @Injectable({
@@ -13,6 +13,13 @@ export class CrudService {
 
   private todoSubject = new BehaviorSubject<ToDo[]>([]);
   private todo = this.todoSubject.asObservable();
+
+  private _isDoneFilterActive : boolean = false;
+
+  public set isDoneFilterActive(value: boolean) {
+    this._isDoneFilterActive = value;
+  }
+
 
   constructor(private http: HttpClient) {
     this.serviceURL = "http://localhost:3000/todos"
@@ -26,13 +33,21 @@ export class CrudService {
   }
 
   getAllTodo(): Observable<ToDo[]> {
+    console.log("handshake:", this.isDoneFilterActive);
     if ((this.todoSubject.value as ToDo[]).length === 0) {
       this.http.get<ToDo[]>(this.serviceURL).subscribe({
         next: res => this.todoSubject.next(res),
         error: error => { console.error("Something went wrong while retrieving todos", error); this.todoSubject.next([]); }
       });
     }
-    return this.todo;
+    return this.todoSubject.pipe(
+      map(todos => {
+        if (this._isDoneFilterActive){
+          return todos.filter(todo => !todo.status);
+        }
+          return todos
+      })
+    );
   }
 
   updateTodo(todo: ToDo): void {

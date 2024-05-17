@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { CrudService } from '../service/crud.service';
+import { ToDo } from '../model/to-do';
 
 @Component({
   selector: 'app-main',
@@ -7,19 +9,21 @@ import {MediaMatcher} from '@angular/cdk/layout';
   styleUrl: './main.component.scss'
 })
 export class MainComponent implements OnDestroy {
-  
+
+  selectedPriorities: string[] = ['low', 'middle', 'high'];
+
   formVisibility: boolean = false;
 
   toggleFormVisibility() {
     this.formVisibility = !this.formVisibility;
   }
 
-  fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
+  fillerNav = Array.from({ length: 50 }, (_, i) => `Nav Item ${i + 1}`);
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private crudService: CrudService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -28,4 +32,14 @@ export class MainComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  onPriorityToggleChange($event: any) {
+    console.log("selectedPriority:", this.selectedPriorities)
+  }
+
+  onDoneChange(checked: boolean) {
+    console.log("toggle:", checked);
+    this.crudService.isDoneFilterActive = checked;
+  }
+
 }
