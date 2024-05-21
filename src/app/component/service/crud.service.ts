@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { Priority, ToDo } from '../model/to-do';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
+
+  private todos: ToDo[] = [];
+  private idcounter: number = 100;
 
   serviceURL: string;
 
@@ -29,10 +32,28 @@ export class CrudService {
 
   constructor(private http: HttpClient) {
     this.serviceURL = "http://localhost:3000/todos"
+    this.todos.push(
+      this.buildTodo(1, "Programm programmieren", "Verzweifeln", true, Priority.HIGH),
+      this.buildTodo(2, "Dokumentation schreiben", "Verzweifeln", false, Priority.MEDIUM),
+      this.buildTodo(3, "Präsentation vortragen", "Verzweifeln", false, Priority.LOW)
+    )
+  }
+
+  buildTodo(id: number, title: string, text: string, status: boolean, prio: Priority):ToDo{
+    let todo = new ToDo();
+    todo.id = id;
+    todo.title = title;
+    todo.text = text;
+    todo.status = status;
+    todo.priority = prio;
+
+    return todo;
   }
 
   createTodo(todo: ToDo): void {
-    this.http.post<ToDo>(this.serviceURL, todo).subscribe({
+    todo.id = this.idcounter;
+    this.idcounter += 1;
+    of(todo).subscribe({
       next: result => this.todoSubject.next([...this.todoSubject.value, result]),
       error: error => console.error("Error on todo create", error)
     });
@@ -40,7 +61,7 @@ export class CrudService {
 
   getAllTodo(): Observable<ToDo[]> {
     if ((this.todoSubject.value as ToDo[]).length === 0) {
-      this.http.get<ToDo[]>(this.serviceURL).subscribe({
+      of(this.todos).subscribe({
         next: res => this.todoSubject.next(res),
         error: error => { console.error("Something went wrong while retrieving todos", error); this.todoSubject.next([]); }
       });
@@ -62,7 +83,7 @@ export class CrudService {
   }
 
   updateTodo(todo: ToDo): void {
-    this.http.put<ToDo>(this.serviceURL + '/' + todo.id, todo).subscribe({
+    of(todo).subscribe({
       next: changedTodo => {
         // Erstellt ein neues Array, indem das geänderte Todo-Element aktualisiert wird
         const updatedTodos = this.todoSubject.value.map(it => 
@@ -80,7 +101,7 @@ export class CrudService {
   }
 
   deleteTodo(todo: ToDo): void {
-    this.http.delete<ToDo>(this.serviceURL + '/' + todo.id).subscribe({
+    of(this.todos).subscribe({
       next: result => this.todoSubject.next(this.todoSubject.value.filter(todoOfList => todoOfList.id !== todo.id)),
       error: error => console.error("Error on deleting Todo with Id ", todo.id, error)
     });

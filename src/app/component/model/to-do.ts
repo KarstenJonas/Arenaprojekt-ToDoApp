@@ -6,14 +6,11 @@ export class ToDo {
     priority: Priority = Priority.LOW;
    
 
-    // constructor(title: string, text: string, status: boolean, prio: Priority, dueDate: Date, duration: Duration){
+    // constructor(title: string, text: string, status: boolean, prio: Priority){
     //     this.title = title;
     //     this.text = text;
     //     this.status = status;
-    //     this.prio = prio;
-    //     this.dateCreated = new Date();
-    //     this.duration = duration;
-    //     this.duedate = dueDate;
+    //     this.priority = prio;
     // }
 
 }
