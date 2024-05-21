@@ -43,13 +43,6 @@
       "status": true
     },
     {
-      "id": 17,
-      "title": "test2",
-      "text": "aaaaaaaaaaaa",
-      "priority": "Mittel",
-      "status": true
-    },
-    {
       "id": 18,
       "title": "test500",
       "text": "bnbbbbbbbbbbbbbb",
